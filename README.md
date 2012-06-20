@@ -24,7 +24,7 @@ There is NO support yet for the subprojects in an .ensime file.
     b. Otherwise, in your Sublime Text `Packages` dir (you can find it by `Preferences -> Browse Packages`),
 
     ```
-    git clone git://github.com/casualjim/sublime-ensime.git sublime-ensime
+    git clone git@github.com:michaelpnash/sublime-ensime.git sublime-ensime
     ```
     
 2. Install Ensime.
