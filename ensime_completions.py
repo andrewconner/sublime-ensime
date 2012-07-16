@@ -37,10 +37,13 @@ class EnsimeCompletionsListener(sublime_plugin.EventListener):
       return []
     data = env.client().complete_member(view.file_name(), locations[0])
     if data is None: 
-      print("Returned data was None")
+      print "Returned data was None"
       return [] 
-    print("Got data for completion:%s", data)
-    friend = sexp.sexp_to_key_map(data[1][1])
+    try:
+        friend = sexp.sexp_to_key_map(data[1][1])
+    except Exception:
+        print "error communicating with ensime server. the server is connected but the response was not understood"
+        return []
     comps = friend[":completions"] if ":completions" in friend else []
     comp_list = [ensime_completion(sexp.sexp_to_key_map(p)) for p in friend[":completions"]]
     
