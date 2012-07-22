@@ -409,5 +409,5 @@ class EnsimeClient(EnsimeMessageHandler):
               int(position)], 
              on_complete)
   
-  def complete_member(self, file_path, position):
-    return self.sync_req([sym("swank:completions"), file_path, position, 0])
+  def complete_member(self, file_path, position, max_results=0,case_sense=False,reload=False):
+    return self.sync_req([sym("swank:completions"), file_path, position, max_results, case_sense, reload])
